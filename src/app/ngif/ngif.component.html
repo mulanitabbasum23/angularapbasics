@@ -1,0 +1,13 @@
+
+<div *ngIf = "isShow"; else elseBlock>
+    This will render when the condition is true.
+</div>
+
+<ng-template #elseBlock>
+    This will render when the condition is false
+</ng-template>
+
+<p [hidden] = "isShow">
+    Hidden used
+</p>
+ 

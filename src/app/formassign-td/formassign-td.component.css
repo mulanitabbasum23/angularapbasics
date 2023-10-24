@@ -1,0 +1,5 @@
+#fullName, #birthday,#gender{
+    border: none;
+    /* text-decoration: underline; */
+    border-bottom: 2px solid black;
+}

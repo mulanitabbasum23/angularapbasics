@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-left rounded shadow py-5">
+            <form [formGroup]="myReactiveForm">
+            <div formGroupName="userDetail">
+                <div class="form-group">
+                    <label for="username">UserName</label>
+                    <input type="text" class="form-control" formControlName="username" placeholder="Enter user name">
+                    <small class="text-danger" *ngIf="myReactiveForm.get('userDetail.username')?.touched
+                    && !myReactiveForm.get('userDetail.username').valid">
+                    <small *ngIf="myReactiveForm.get('userDetail.username')?.errors['required']">User name is required</small>
+                    <small *ngIf="myReactiveForm.get('userDetail.username')?.errors['nameIsNotAllowed']">User name is already taken</small>
+                  </small>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" formControlName="email" placeholder="Enter email">
+                    <small class="text-danger" *ngIf="myReactiveForm.get('userDetail.email').touched && myReactiveForm.get('userDetail.email').errors?.pattern">Please enter a valid domain email</small>
+                    <small class="text-danger" *ngIf="myReactiveForm.get('userDetail.email').errors?.required && myReactiveForm.get('userDetail.email').touched">Email is required field</small>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Enter password">
+                    <small class="text-danger" *ngIf="myReactiveForm.get('userDetail.password').touched && myReactiveForm.get('userDetail.password').errors?.required">This is required field</small>
+                    <small class="text-danger" *ngIf="myReactiveForm.get('userDetail.password').touched && myReactiveForm.get('userDetail.password').errors?.minlength">Password should contain at least 8 characters</small>
+                </div> -->
+            </div>
+                <div class="form-group">
+                    <label for="course">Select Course</label>
+                    <select class="form-control" formControlName="course" id="course">
+                        <option value="Angular">Angular</option>
+                        <option value="HTML">HTML</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="DotNetCore">DotNetCore</option>
+                        <option value="Azure">Azure</option>
+                    </select>
+                </div>
+                <div class="form-group mt-2"formArrayName="skills">
+                    <label for="skills">Skills</label>
+                    <ng-container *ngFor="let skill of skills['controls']; let i=index">
+                        <input class="form-control mt-2" type="text" placeholder="Add skills" formControlName="{{i}}">
+                    </ng-container>
+                    <button class="btn btn-dark btn-sm mt-4" (click)="OnAddSkills()">Add skills</button>
+                    <button class="btn btn-dark btn-sm mt-4" id="removebt" (click)="RemoveSkills(i)">Remove</button>
+                </div>
+                <button class="btn btn-primary mt-2" (click)="Submit()">Submit</button>
+            </form>
+        </div>
+        <div class="row justify-content-center mt-2" *ngIf="isFormSubmmited">
+            <div class="col-md-6 rounded shadow py-4">
+                <h2>Reactive Form Data</h2>
+                <p>UserName: <strong>{{myReactiveForm.get('userDetail.username')?.value}}</strong></p>
+                <p>UserName: <strong>{{myReactiveForm.get('userDetail.email')?.value}}</strong></p>
+                <p>UserName: <strong>{{myReactiveForm.get('course')?.value}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+</div>

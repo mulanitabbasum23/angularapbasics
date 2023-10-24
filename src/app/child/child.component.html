@@ -1,0 +1,21 @@
+<p>child works!</p>
+{{cliclCount}}
+<h2>Password Generator</h2>
+<div>Enter Length
+    <input type="text">
+</div>
+<div>Use Letters
+    <input type="checkbox">
+</div>
+<div>Use Numbers
+    <input type="checkbox">
+</div>
+<div>Use Symbols
+    <input type="checkbox">
+</div>
+<button (click)="GeneratePwd()">Generate!</button>
+<div>Your Password
+    <input type="text">
+</div>
+{{password}}
+<button class="btn btn-success" (click)="SendToParent()">Send Data From Child</button>

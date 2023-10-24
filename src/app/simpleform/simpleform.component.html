@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-left rounded shadow py-5">
+           <form #myForm="ngForm" (ngSubmit)="OnSubmit(myForm)">
+            <div ngModelGroup="userDetail">
+            <div class="form-group">
+                <label for="username">UserName</label>
+                <input id="username" type="text" class="form-control" placeholder="Enter user name" name="username" ngModel required #username="ngModel">
+                <small class="text-danger" *ngIf="!username.valid && username.touched">Please enter user name</small>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" type="password" class="form-control" placeholder="  Enter password" name="password" ngModel required #password="ngModel" minlength="8">
+                <small class="text-danger" *ngIf="!password.valid && password.touched">Password should contain at least 8 characters</small>
+            </div>
+        </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" placeholder="Enter email" id="email" name="email" email ngModel required #email="ngModel" pattern="^[a-z0-9A-Z]+@codemindtechnology.com">
+                <div *ngIf="email.touched">
+                    <p *ngIf="email.errors?.required" class="text-danger"> Email is a required field !</p>
+                    <p class="text-danger" *ngIf="email.errors?.email">This is not valid email</p>
+                    <small class="text-danger" *ngIf="email.touched && email.errors?.pattern">Please enter valid email</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <select class="form-control mt-2" name="course" id="course" [ngModel]="defaultValue">
+                    <option value="Angular">Angular</option>
+                    <option value="HTML">HTML</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div *ngFor="let gender of genders" class="custom-control custom-radio">
+                    <input type="radio" name="gender" id="{{gender.id}}" class="custom-control-input" value="{{gender.value}}" [ngModel]="defaultGender">
+                    <label for="{{gender.id}}" class="custom-control-label">{{gender.value}}</label>
+                </div>
+            </div>
+            <button [disabled]="!myForm.valid" type="submit" class="btn btn-primary mt-2">Submit</button>
+           </form>
+        </div>
+        <div class="row justify-content-center mt-2">
+            <div class="col-md-6 rounded shadow py-4" *ngIf="isSubmitted">
+                <h2>Form Data</h2>
+                <p>User name : <strong>{{this.formData.username}}</strong></p>
+                <p>Password : <strong>{{this.formData.password}}</strong></p>
+                <p>Email: <strong>{{this.formData.email}}</strong></p>
+                <p>Course: <strong>{{this.formData.course}}</strong></p>
+                <p>Gender : <strong>{{this.formData.gender}}</strong></p>
+
+            </div>
+        </div>
+    </div>
+</div>

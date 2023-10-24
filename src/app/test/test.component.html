@@ -1,0 +1,23 @@
+<p>test works!</p>
+<button (click)="Print()">CLick me</button>
+{{name}}
+
+
+<p>Server with ID {{severId}} is {{getServerStatus()}}</p>
+<div [innerHTML]="val"></div>
+<!-- <img [src]="imgUrl" alt="No Image found"> -->
+<h1>Two way data binding without two way syntax</h1>
+<!-- <div>
+    <input type="text" [value]="data" (blur)="sendData($event)" >
+</div>
+
+<div>
+  {{data}}  
+</div> -->
+<div>
+    <input type="text" [(ngModel)]="data" >
+</div>
+
+<div>
+    {{data}}  
+  </div>
