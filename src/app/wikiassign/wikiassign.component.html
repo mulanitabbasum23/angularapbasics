@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="search" ngModel #search="ngModel">
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-primary" (click)="getSearchData()">Search</button>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped mt-5">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>WordCount</th>
+                <th>Snippet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let wiki of wikiArr">
+                <td>{{wiki.title}}</td>
+                <td>{{wiki.wordcount}}</td>
+                <td>{{wiki.snippet}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>
