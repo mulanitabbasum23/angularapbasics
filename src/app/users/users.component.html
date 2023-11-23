@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h3>Getting Data from API</h3>
+        </div>
+        <div>
+            <table class="table table-bordered">
+                <thead class="table-info">
+                    <tr class="theadrow">
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>UserName</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Website</th>
+                    </tr>    
+                </thead>
+                <tbody class="table-warning">
+                    <tr *ngFor="let user of users">
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.address}}</td>
+                        <td>{{user.website}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h3>Getting Post Data from API</h3>
+        </div>
+        <div>
+            <table class="table table-bordered">
+                <thead class="table-danger">
+                    <tr class="theadrow">
+                        <th>UserId</th>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Body</th>
+                    </tr>    
+                </thead>
+                <tbody class="table-light">
+                    <tr *ngFor="let user1 of users1">
+                        <td>{{user1.userId}}</td>
+                        <td>{{user1.id}}</td>
+                        <td>{{user1.title}}</td>
+                        <td>{{user1.body}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> -->

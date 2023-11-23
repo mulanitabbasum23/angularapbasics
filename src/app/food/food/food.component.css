@@ -1,0 +1,10 @@
+h2{
+    text-align: center;
+    background-color:black;
+    color: white;
+    margin-left:0;
+    padding: 0;
+}
+thead,tr,th{
+    background-color: rgb(168, 235, 235);
+}

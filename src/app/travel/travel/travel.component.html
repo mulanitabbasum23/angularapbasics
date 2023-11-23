@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mt-2">
+      <input type="text" class="form-control" name="search" placeholder="search country" [(ngModel)]="inputData">
+    </div>
+    <div class="col-md-6 mt-2">
+      <button class="btn btn-primary" (click)="getSearchData()">Search</button>
+    </div>
+  </div>
+  <div class="mt-4" style="overflow-y:auto; height:800px; position:absolute">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sr.No</th>
+        <th>ID</th>
+        <th>Country</th>
+        <th>Domain</th>
+        <th>Language</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let travel of travelData; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{travel.id}}</td>
+        <td>{{ travel.country }}</td>
+        <td>{{ travel.domain }}</td>
+        <td>{{ travel.language }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

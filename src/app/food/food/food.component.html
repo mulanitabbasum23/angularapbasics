@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="mt-2">Soups</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sr.No</th>
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Title</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let food of foodData, let i= index">
+                        <td>{{i+1}}</td>
+                        <td>{{food.id}}</td>
+                        <td><img src="{{food.Image}}" alt=""></td>
+                        <td>{{food.Title}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>

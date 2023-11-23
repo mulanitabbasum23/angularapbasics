@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12"  style="overflow-y:auto; height:800px; position:absolute">
+            <table class="table table-striped ">
+                <thead>
+                    <tr>
+                        <th>Sr.no</th>
+                        <th>Profile</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of randomUser; let i= index">
+                        <td>{{i+1}}</td>
+                        <td><img src="{{user.picture.thumbnail
+                        }}" alt=""></td>
+                        <td>{{user.name.first}}</td>
+                        <td>{{user.gender}}</td>
+                        <td>{{user.dob.age}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

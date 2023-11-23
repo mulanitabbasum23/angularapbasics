@@ -10,6 +10,7 @@ export class AppComponent {
   data: string = "Hi All";
 
   count = 0;
+  uid: number | undefined;
 
   IncreaseCount(){
     this.count++;
@@ -22,6 +23,15 @@ export class AppComponent {
   fromChildEmp(event:any){
     // console.log('Employee Information', event);
 
+  }
+  constructor() {
+    this.uid = 100;
+  }
+
+  handleData(data: any) {
+    console.log(data.target.value);
+
+    this.uid = data.target.value;
   }
 
 }
