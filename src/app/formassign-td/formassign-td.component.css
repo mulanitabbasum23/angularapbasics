@@ -1,5 +1,11 @@
-#fullName, #birthday,#gender{
+#fullName, #birthday,#gender,#country,#tel,#bio,#userName,#email,#pwd,#confirmpwd{
     border: none;
-    /* text-decoration: underline; */
     border-bottom: 2px solid black;
+}
+#card{
+    border: none;
+}
+img{
+    margin-left: 60px;
+    margin-top: 10px;
 }

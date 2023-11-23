@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormGroup, NgForm} from '@angular/forms';
 @Component({
   selector: 'app-formassign-td',
   templateUrl: './formassign-td.component.html',
@@ -11,6 +11,11 @@ export class FormassignTDComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+  OnSubmit(form:NgForm){
+    console.log(form);
+    
+
   }
 
 }

@@ -1,31 +1,92 @@
 <div class="containner">
-    <form #myForm="ngForm">
+    <form #myForm="ngForm" (ngSubmit)="OnSubmit(myForm)">
         <div class="row">
             <div class="col-md-4">
-                 <div class="form-group card" style="width: 18rem" >
-                    <img [src]="imageUrl" alt="Image not found" width="200px" class="rounded float-start ms-5">
-                    <strong class="text-center">Tabbasum Mulani</strong>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatibus tempora officiis dolor voluptas quo magni recusandae, eligendi dolorem obcaecati odit sit quia eveniet in facere, provident suscipit id earum.</p>
-        
+                 <div class="form-group card" id="card" style="width: 18rem" >
+                    <img [src]="imageUrl" alt="Image not found" width="150px" class="rounded-circle">
+                    <strong class="text-center mt-3">Tabbasum Mulani</strong>
+                    <p class="text-center">I am hardworking engineering graduate in electronics and telecommunication in 2019 from Solapur University. JS, HTML, CSS,git & github, typescript,Angular these are my technical skill sets.</p>
                  </div>
             </div>
             <div class="col-md-4">
-                <h3>User details</h3>
+                <h4>User details</h4>
                 <div class="form-group">
-                    <label for="full name">Full Name</label>
-                    <input type="text" id="fullName" class="form-control" placeholder="Enter full name" name="fullName" ngModel>
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" class="form-control" placeholder="Enter full name" name="fullName" ngModel required #fullName="ngModel">
+                    <small class="text-danger" *ngIf="!fullName.valid && fullName.touched">Please enter your name</small>
                 </div>
                 <div class="form-group">
                     <label for="birthday" class="mt-4">Your birthday</label>
-                    <input type="date" id="birthday" class="form-control">
+                    <input type="date" id="birthday" class="form-control" name="birthday" required ngModel #birthday="ngModel">
+                    <small class="text-danger" *ngIf="!birthday.valid && birthday.touched">This field is required</small>
                 </div>
                 <div class="form-group dropdown">
                     <label for="gender" class="mt-4">Gender</label>
-                    <select name="gender" id="gender" class="form-control dropdown-toggle">
+                    <select id="gender" class="form-control" name="gender" required ngModel #gender="ngModel">
                         <option value="male" >Male</option>
                         <option value="female">Female</option>
                     </select>
+                    <small class="text-danger" *ngIf="!gender.valid && gender.touched">Please select your gender</small>
+
                 </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <label for="country" class="mt-4">Country</label>
+                        <select id="country" class="form-control" name="country" required ngModel #country="ngModel">
+                            <option value="india">India</option>
+                            <option value="unitedStates">United State</option>
+                            <option value="austrelia">Austrelia</option>
+                        </select>
+                        <small class="text-danger" *ngIf="!country.valid && country.touched">Please select your country</small>
+                    </div>
+                    <div class="col-md-6 form-group">
+                        <label for="phone" class="mt-4">Phone</label>
+                        <input type="tel" id="tel" class="form-control" name="tel" required ngModel #tel="ngModel">
+                        <small class="text-danger" *ngIf="!tel.valid && tel.touched">Please enter your phone number</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bio" class="mt-4">Bio</label>
+                    <textarea name="bio" id="bio" cols="30" rows="3" class="form-control" required ngModel #bio="ngModel" maxlength="256"></textarea>
+                    <small>Tell us about yourself</small>
+                    <small class="text-danger" *ngIf="!bio.valid && bio.touched">This is requird filed</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4>Account details</h4>
+                <div class="form-group">
+                    <label for="userName">Username</label>
+                    <input type="text" id="userName" class="form-control" name="userName" required ngModel #userName="ngModel" minlength="5" maxlength="25" pattern="^(?=.*[0-9])(?=.*[a-zA-Z]).*$">
+                    <small class="text-danger" *ngIf="!userName.valid && userName.touched">Please enter your user name</small>
+                    <small class="text-danger" *ngIf="userName.touched && userName.errors?.minlength">Username nust be at least 5 character long</small>
+                    <p class="text-danger" *ngIf="userName.touched && userName.errors?.pattern">Your username must contain only numbers and letters</p>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="mt-4">Email</label>
+                    <input type="email" id="email" class="form-control" name="email" required email ngModel #email="ngModel" pattern="^[a-z0-9A-Z]+@gmail.com">
+                    <div *ngIf="email.touched">
+                        <p *ngIf="email.errors?.required" class="text-danger"> Email is a required field !</p>
+                        <p class="text-danger" *ngIf="email.errors?.email">This is not valid email</p>
+                        <p class="text-danger" *ngIf="email.touched && email.errors?.pattern">Please enter valid email</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="pwd" class="mt-4">Password</label>
+                    <input type="password" id="pwd" class="form-control" name="pwd" required ngModel #pwd="ngModel" minlength="5" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$">
+                    <small class="text-danger" *ngIf="pwd.touched && !pwd.valid && pwd.errors?.minlength">Password must be at least 5 characters long</small>
+                    <small class="text-danger" *ngIf="pwd.touched && pwd.errors?.pattern">Your password must contain at least one uppercase, one lowercase and one number</small>
+                </div>
+                <div class="form-group">
+                    <label for="confirmpwd" class="mt-4">Confirm Password</label>
+                    <input type="password" id="confirmpwd" class="form-control" name="confirmPassword" required  #confirmPassword="ngModel" [(ngModel)]="confirmPass">
+                    <small class="text-danger" *ngIf="confirmPassword.dirty && pwd.value !== confirmPassword.value">Password mismatch</small>
+                    <small class="text-success" *ngIf="confirmPassword.dirty && pwd.value === confirmPassword.value">Password match successfully</small>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" class="mt-4" name="terms" ngModel #terms="ngModel">
+                    <strong class="ms-2">I accept terms and conditions</strong>
+                </div>
+                <button class="mt-4" (click)="OnSubmit()">Submit</button>
             </div>
         </div>
     </form> 
