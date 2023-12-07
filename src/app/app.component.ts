@@ -8,9 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'angularapp';
   data: string = "Hi All";
+  stdInfo: any = {
+    id: 12, stdName: 'Tabbasum', class: 'BE'
+  }
 
   count = 0;
   uid: number | undefined;
+  parentcolor:any;
+  isDestroy: boolean = true;
 
   IncreaseCount(){
     this.count++;
@@ -32,6 +37,12 @@ export class AppComponent {
     console.log(data.target.value);
 
     this.uid = data.target.value;
+  }
+  addColor(color:any){
+    this.parentcolor = color.target.value
+  }
+  OnDestroy() {
+    this.isDestroy = false;
   }
 
 }

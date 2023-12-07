@@ -16,5 +16,9 @@ export class YahofinComponent implements OnInit {
     this._rapidApiService.getYahooFinance().subscribe(res => {
       console.log('Rapid API called successfully', res);
     });
+    
+    this._rapidApiService.getstocksummary().subscribe(res => {
+      console.log('get stock summery', res);
+    })
   }
 }

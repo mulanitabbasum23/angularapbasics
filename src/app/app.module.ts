@@ -17,7 +17,7 @@ import { BankapplicationformComponent } from './bankapplicationform/bankapplicat
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { FormassignTDComponent } from './formassign-td/formassign-td.component';
 import { Formassign1Component } from './formassign1/formassign1.component';
-import{HttpClientModule} from '@angular/common/http';
+import{HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { UsersComponent } from './users/users.component';
 import { TodoComponent } from './todo/todo.component';
 import { Comp1Component } from './comp1/comp1.component';
@@ -40,6 +40,15 @@ import { ProductModule } from './product/product.module';
 import { SharedModule } from './shared/shared.module';
 import { RandomuserassignComponent } from './randomuserassign/randomuserassign.component';
 import { HookComponent } from './hook/hook.component';
+import { PipeComponent } from './pipe/pipe.component';
+import { FilterPipe } from './filter.pipe';
+import { ChatgptComponent } from './chatgpt/chatgpt.component';
+import { LoginchatComponent } from './chatgpt/loginchat/loginchat.component';
+import { DemoService } from './services/demo.service';
+import { HeadrsInterceptor } from './headers.interceptor';
+import { SignupComponent } from './chatgpt/signup/signup.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+
 
 
 @NgModule({
@@ -77,7 +86,13 @@ import { HookComponent } from './hook/hook.component';
     HaircareComponent,
     FregrancesComponent,
     RandomuserassignComponent,
-    HookComponent
+    HookComponent,
+    PipeComponent,
+    FilterPipe,
+    ChatgptComponent,
+    LoginchatComponent,
+    SignupComponent,
+    RxjsComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +103,11 @@ import { HookComponent } from './hook/hook.component';
     ProductModule,
     SharedModule
   ],
-  providers: [],
+  providers: [DemoService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HeadrsInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

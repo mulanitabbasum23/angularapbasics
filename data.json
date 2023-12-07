@@ -1,0 +1,90 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "signupuser": [
+    {
+      "userName": "Tabbasum",
+      "email": "tabbasum@gmail.com",
+      "password": "12345678987",
+      "id": 1
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "asdfgh",
+      "id": 2
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "fuil",
+      "id": 3
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "jhfg",
+      "id": 4
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "123",
+      "id": 5
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "fgh",
+      "id": 6
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "123",
+      "id": 7
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "Tabbasum1234",
+      "id": 8
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "Tabbasum1234",
+      "id": 9
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "Tabbasum1234",
+      "id": 10
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "Tabbasum1234",
+      "id": 11
+    },
+    {
+      "userName": "Tabbasum",
+      "email": "mulanitabbasum1997@gmail.com",
+      "password": "Tabbaum@23",
+      "id": 12
+    }
+  ]
+}

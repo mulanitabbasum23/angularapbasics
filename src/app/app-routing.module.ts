@@ -16,11 +16,17 @@ import { SkincareComponent } from './beauty/skincare/skincare.component';
 import { HaircareComponent } from './beauty/haircare/haircare.component';
 import { FregrancesComponent } from './beauty/fregrances/fregrances.component';
 import { AuthGuard } from './auth.guard';
+import { PipeComponent } from './pipe/pipe.component';
+import { ChatgptComponent } from './chatgpt/chatgpt.component';
+import { LoginchatComponent } from './chatgpt/loginchat/loginchat.component';
+import { YahofinComponent } from './yahofin/yahofin.component';
+import { SignupComponent } from './chatgpt/signup/signup.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 
 const routes: Routes = [
- // {path:'', redirectTo:'login', pathMatch:'full' }, // localhost:4200
-  //{path: 'login', component: LoginComponent},
+  {path:'', redirectTo:'login', pathMatch:'full' }, // localhost:4200
+  {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   { path:'aboutus', component: AboutusComponent}, // locahost:4200/aboutus
    {path: 'contactus', component: ContactusComponent},
@@ -31,7 +37,7 @@ const routes: Routes = [
     {path: 'washingmachine', component: WashingMachineComponent}
    ]},
    {path: 'beauty', component:BeautyComponent, children: [
-    {path: 'makeup', component: MakeupComponent}, // localhost:4200/product/laptop
+    {path: 'makeup', component: MakeupComponent}, 
     { path: 'skincare', component: SkincareComponent},
     { path: 'haircare', component: HaircareComponent},
     {path: 'fregrances', component: FregrancesComponent}
@@ -40,6 +46,14 @@ const routes: Routes = [
   { path: 'customer', loadChildren: ()=> import('./customer/customer.module').then(c=> c.CustomerModule)},
   { path: 'travel', loadChildren: ()=> import('./travel/travel.module').then(c=> c.TravelModule)},
   { path: 'food', loadChildren: ()=> import('./food/food.module').then(c=> c.FoodModule)},
+  {path:'pipe', component:PipeComponent},
+  {path: 'rapidapi', component: YahofinComponent},
+  {path:'chatgpt', children:[
+    {path:'',component:ChatgptComponent},
+    {path: 'loginchat', component:LoginchatComponent},
+    {path:'signup',component:SignupComponent }
+  ]},
+  {path:'rxjs',component:RxjsComponent},
    {path:'**', component:PagenotfoundComponent}
 ];
 

@@ -19,10 +19,10 @@
 </ul> -->
 
 
-<!-- <app-test></app-test>
-<button (click)="IncreaseCount()" > Send to child</button>
-<app-child [name]="data" [clickCounts]="count" (update)="fromChild($event)" ></app-child>
-<app-child-employee (employee)="fromChildEmp($event)" ></app-child-employee> 
+<!-- <app-test></app-test> -->
+<!-- <button (click)="IncreaseCount()" > Send to child</button>
+<app-child [name]="data" [clickCounts]="count" (update)="fromChild($event)" [student]="stdInfo" ></app-child> -->
+<!-- <app-child-employee (employee)="fromChildEmp($event)" ></app-child-employee> 
 <app-ngif></app-ngif>
 <app-ngfor></app-ngfor> 
 <div class="d-flex justify-content-center">
@@ -64,7 +64,7 @@
   </div>
 </div> -->
 <!-- <app-yahofin></app-yahofin> -->
-<!-- <header style="background-color:rgb(241, 225, 132)">
+<header style="background-color:rgb(241, 225, 132)">
   <nav>
       <ul class="nav nav-tabs">
           <li class="nav-item">
@@ -91,20 +91,38 @@
     <li class="nav-item">
       <a class="nav-link" routerLinkActive="active" routerLink="/travel">Travel</a>
   </li>
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a class="nav-link" routerLinkActive="active" routerLink="/food">Food</a>
+</li> -->
+<li class="nav-item">
+  <a class="nav-link" routerLinkActive="active" routerLink="/pipe">Pipe</a>
 </li>
+<!-- <li class="nav-item">
+  <a class="nav-link" routerLinkActive="active" routerLink="/rapidapi">RapidAPI</a>
+</li> -->
+<li class="nav-item">
+  <a class="nav-link" routerLinkActive="active" routerLink="/chatgpt">ChatGPT</a>
+</li>
+<!-- <li class="nav-item">
+  <a class="nav-link" routerLinkActive="active" routerLink="/rxjs">Rxjs</a>
+</li> -->
       </ul>
   </nav>
-</header> -->
+</header>
 
-<div class="d-flex justify-content-center" >
+<!-- <div class="d-flex justify-content-center" >
   <div class="form-group">
       <input type="text"  class="form-control" placeholder="Enter user id" (blur)="handleData($event)">
   </div>
-  <app-hook [userId]="uid"></app-hook>
-  
+  <div class="form-group">
+    <input type="text"  class="form-control" placeholder="Add color" (blur)="addColor($event)">
 </div>
+  <app-hook [userId]="uid" [color]="parentcolor" *ngIf="isDestroy">
+    <h1 #child>This is the child content coming from parent compoent</h1>
+  </app-hook>
+  <button class="btn btn-primary" (click)="OnDestroy()">Remove Hooks compoent</button>
+  
+</div> -->
 <router-outlet></router-outlet>
 <!-- <app-wikiassign></app-wikiassign> -->
 <!-- <app-randomuserassign></app-randomuserassign> -->
