@@ -15,4 +15,12 @@ export class AuthService {
       return false;
     }
   }
+  chatgptemailandpwd(email:any, password:any){
+    if (email=='^[a-z0-9A-Z]+@gmail.com' && password =='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).*$') {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 }

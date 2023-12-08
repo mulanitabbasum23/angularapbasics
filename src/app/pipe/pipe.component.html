@@ -1,0 +1,80 @@
+<!-- <p>pipe works!</p>
+
+<p>Todays Date : {{ todaysDate | date }}</p>
+
+<p>short Date : {{ todaysDate | date:'shortDate' }}</p>
+
+<p>Formatted Date : {{ todaysDate | date:'M/dd/yyyy' }}</p>
+
+<p>Hours and minutes : {{ todaysDate | date:'h:mm' }}</p>
+
+<div>
+    <p>{{name | uppercase}}</p>
+</div>
+
+<div>
+    <p>{{name | lowercase}}</p>
+</div>
+
+
+<p>Todays Full date Date : {{ todaysDate | date:'fullDate' | uppercase }}</p>
+
+
+<div>
+    {{ myObservable | async}}
+</div>
+<div style="text-align: center;">
+    <p>Currency Pipe</p>
+
+    <p>{{price | currency:'USD'}}</p>
+    <p>{{price | currency:'INR'}}</p>
+</div>
+<div style="text-align: center;">
+    <p>{{ jsonData | json}}</p>
+</div>
+<div style="text-align: center;">
+    <p>{{ fullname | titlecase}}</p>
+   </div> -->
+
+
+   <h1>Filetr pipe</h1>
+
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="form-group col-md-8 mt-2">
+            <input type="text" class="form-control" placeholder="Add Product" #prod>
+        <button class="btn btn-primary mt-2" (click)="AddProduct(prod.value)">Add Product</button>
+        </div>
+            <label for="">Search by Product</label>
+            <input type="text" class="form-control" placeholder="Enter product name" [(ngModel)]="namesearch">
+       
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Sno
+                        </th>
+                        <th scope="col">
+                            Name
+                        </th> <th scope="col">
+                            Price
+                        </th> <th scope="col">
+                            Availibility
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of productArr | filter: namesearch">
+                        <td>{{product.sno}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.availibility}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
