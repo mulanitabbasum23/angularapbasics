@@ -1,0 +1,28 @@
+.container{
+    /* background-color: blue; */
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    height: 100%;
+
+}
+.col-md-5{
+    background-color: white;
+    height: 800px;
+}
+.col-md-7{
+    background-color: rgb(255, 255, 219);
+    height: 800px;
+}
+h3{
+    margin-top:30%;
+    margin-left: 50px;
+}
+.get{
+    margin-top: 60%;
+    margin-left: 30%;
+}
+a{
+    width: 100px;
+}

@@ -1,0 +1,25 @@
+<img src="../../assets/images/chatgptlogo.png" alt="" >
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h2>Welcome back</h2>
+                </div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Email address</label>
+                      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input formControlName="password" [type]="visible?'text':'password'"class="form-control" id="exampleInputPassword1">
+                      <span class="eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
+                    </div>
+                    <button type="submit" id="btn" class="btn btn-success">Login</button>
+                  </form>
+                  <small class="d-flex justify-content-center mt-2">Don't have an account? <a routerLink="../signup">SignUp</a></small>
+            </div>
+        </div>
+    </div>
+</div>
